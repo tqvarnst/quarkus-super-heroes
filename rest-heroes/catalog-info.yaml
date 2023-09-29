@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rest-heroes-dev
+  description: The rest heroes project
+  annotations:
+    argocd/app-name: rest-heroes-dev
+    backstage.io/kubernetes-id: rest-heroes
+    backstage.io/kubernetes-namespace: super-heroes
+    backstage.io/techdocs-ref: url:https://github.com/tqvarnst/quarkus-super-heroes/rest-heroes
+    backstage.io/source-location: url:https://github.com/tqvarnst/quarkus-super-heroes/rest-heroes
+    janus-idp.io/tekton-enabled: 'true'
+  tags:
+    - java
+    - quarkus
+    - maven
+  links:
+    - url: https://devspaces.apps.cluster-xxb9k.sandbox2982.opentlc.com/dev-pipelines/ns/super-heroes/
+      title: Pipelines
+      icon: web
+    - url: https://devspaces.apps.cluster-xxb9k.sandbox2982.opentlc.com/k8s/ns/super-heroes/deployments/rest-heroes
+      title: Deployment
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: dev-user
+  system: workshop-system-super-heroes
+  providesApis:
+    - gateway-api-super-heroes
+  consumesApis:
+    - backend-api-super-heroes
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-super-heroes
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: dev-user
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gateway-api-super-heroes
+  description: API surface exposed to interact with Backends (summit POIs + parks data) via the Gateway
+  links:
+    - url: http://rest-heroes-super-heroes-test/q/swagger-ui
+      title: Swagger UI
+      icon: web
+    - url: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/rest-heroes/openapi-schema.yml
+      title: API Spec
+      icon: code
+spec:
+  type: openapi
+  lifecycle: production
+  owner: dev-user
+  system: workshop-system-super-heroes
+  definition:
+    $text: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/rest-heroes/openapi-schema.yml
