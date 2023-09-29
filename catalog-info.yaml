@@ -26,10 +26,6 @@ spec:
   lifecycle: production
   owner: dev-user
   system: workshop-system-super-heroes
-  providesApis:
-    - gateway-api-super-heroes
-  consumesApis:
-    - backend-api-super-heroes
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
@@ -40,26 +36,5 @@ metadata:
     - janus-idp
     - openshift
     - workshop
-    - rh-summit
 spec:
   owner: dev-user
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: gateway-api-super-heroes
-  description: API surface exposed to interact with Backends (summit POIs + parks data) via the Gateway
-  links:
-    - url: http://super-heroes-super-heroes-test/q/swagger-ui
-      title: Swagger UI
-      icon: web
-    - url: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/super-heroes/openapi-schema.yml
-      title: API Spec
-      icon: code
-spec:
-  type: openapi
-  lifecycle: production
-  owner: dev-user
-  system: workshop-system-super-heroes
-  definition:
-    $text: https://github.com/tqvarnst/quarkus-super-heroes/blob/main/super-heroes/openapi-schema.yml
