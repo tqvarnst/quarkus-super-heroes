@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: rest-heroes-dev
+  name: super-heroes-dev
   description: The rest heroes project
   annotations:
-    argocd/app-name: rest-heroes-dev
-    backstage.io/kubernetes-id: rest-heroes
+    argocd/app-name: super-heroes-dev
+    backstage.io/kubernetes-id: super-heroes
     backstage.io/kubernetes-namespace: super-heroes
-    backstage.io/techdocs-ref: url:https://github.com/tqvarnst/quarkus-super-heroes/tree/main/rest-heroes
-    backstage.io/source-location: url:https://github.com/tqvarnst/quarkus-super-heroes/tree/main/rest-heroes
+    backstage.io/techdocs-ref: url:https://github.com/tqvarnst/quarkus-super-heroes/
+    backstage.io/source-location: url:https://github.com/tqvarnst/quarkus-super-heroes/
     janus-idp.io/tekton-enabled: 'true'
   tags:
     - java
@@ -18,7 +18,7 @@ metadata:
     - url: https://devspaces.apps.cluster-xxb9k.sandbox2982.opentlc.com/dev-pipelines/ns/super-heroes/
       title: Pipelines
       icon: web
-    - url: https://devspaces.apps.cluster-xxb9k.sandbox2982.opentlc.com/k8s/ns/super-heroes/deployments/rest-heroes
+    - url: https://devspaces.apps.cluster-xxb9k.sandbox2982.opentlc.com/k8s/ns/super-heroes/deployments/super-heroes
       title: Deployment
       icon: web
 spec:
@@ -50,10 +50,10 @@ metadata:
   name: gateway-api-super-heroes
   description: API surface exposed to interact with Backends (summit POIs + parks data) via the Gateway
   links:
-    - url: http://rest-heroes-super-heroes-test/q/swagger-ui
+    - url: http://super-heroes-super-heroes-test/q/swagger-ui
       title: Swagger UI
       icon: web
-    - url: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/rest-heroes/openapi-schema.yml
+    - url: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/super-heroes/openapi-schema.yml
       title: API Spec
       icon: code
 spec:
@@ -62,4 +62,4 @@ spec:
   owner: dev-user
   system: workshop-system-super-heroes
   definition:
-    $text: https://github.com/tqvarnst/quarkus-super-heroes/blob/main/rest-heroes/openapi-schema.yml
+    $text: https://github.com/tqvarnst/quarkus-super-heroes/blob/main/super-heroes/openapi-schema.yml
