@@ -62,4 +62,4 @@ spec:
   owner: dev-user
   system: workshop-system-super-heroes
   definition:
-    $text: https://raw.githubusercontent.com/tqvarnst/quarkus-super-heroes/main/rest-heroes/openapi-schema.yml
+    $text: https://github.com/tqvarnst/quarkus-super-heroes/blob/main/rest-heroes/openapi-schema.yml
